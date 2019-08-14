@@ -3,12 +3,37 @@ import Book from "../components/Book";
 import Form from "../components/Form";
 
 class BookList extends Component {
+
+  state = {
+    books : []
+  }
+
+
+  componentDidMount() {
+    fetch('http://localhost:3005/books')
+    .then(resp => resp.json())
+
+    // .then(console.log)
+    .then(bookObj => {
+      this.setState({
+        books: bookObj
+      })
+    })
+  }
+
+  this.state.books.map((book) => {
+
+    return <BookList key={book.id} {...book}
+    /> })
+    
+    
   render() {
+
     return (
       <div className="book-list">
-        <h1>Book List</h1>
+        <h1></h1>
         <Form />
-        <ul>{/*render list of books here*/}</ul>
+        <ul>{booksObj}</ul>
       </div>
     );
   }
