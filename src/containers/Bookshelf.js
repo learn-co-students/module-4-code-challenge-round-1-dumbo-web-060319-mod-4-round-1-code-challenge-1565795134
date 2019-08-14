@@ -5,9 +5,22 @@ const Bookshelf = props => {
   return (
     <div>
       <h1>Book Shelf</h1>
-      <ul>{/*render list of books here*/}</ul>
+      <ul>
+        {
+          props.myBooks.map(book => 
+            <Book 
+              handleClick={props.handleClick} 
+              key={book.id} 
+              book={book}
+            />
+          )
+        }
+      </ul>
     </div>
   );
 };
 
 export default Bookshelf;
+
+
+// return allBooks.map(book => <Book handleClick={this.props.handleClick} key={book.id} book={book}/>)
